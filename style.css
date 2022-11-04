@@ -1,0 +1,29 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    font-family: "Ruda", sans-serif;
+}
+* a {
+    color: black;
+  }
+
+.header {
+    background-color: rgb(223, 87, 87);
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+
+.title {
+    color: white;
+}
+
+.puntuaciones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
