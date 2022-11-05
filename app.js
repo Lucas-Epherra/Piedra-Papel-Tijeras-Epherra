@@ -1,49 +1,91 @@
 // PIEDRA PAPEL O TIJERA
 
 //alert de bienvenida al usuario
-alert("Bienvenido a piedra papel o tijera, pulse aceptar para continuar");
+alert("Bienvenido a piedra papel o tijeras, pulse aceptar para continuar");
 
+let usuario;
+
+// funcion que captura la entrada y le da valor a la variable usuario
+const entradaUsuario = () => {
+    usuario = prompt("Por favor ingrese su nombre para continuar");
+    return usuario;
+}
+
+usuario = entradaUsuario();
+
+console.log(usuario);
+
+//array de armas
 const armas = ["piedra","papel","tijera"]
 
+//funcion para que el ordenador elija su arma
 function elegirArma (arr) {
     return arr [Math.floor(Math.random() * arr.length )];
 }
 
+// la variable toma el valor del resultado de la funcion de arriba
 let armaCpu = elegirArma(armas);
 
-//funcion para validar el arma ingresada
-let armaUser = prompt ("Elige tu arma: \n1 - piedra \n2 - papel \n3 - tijera").toLowerCase();
-while (armas.some(function(elemento) {
-    return elemento == armaUser;} ) == false) {
-        armaUser = prompt('Elige una opcion valida: \n1 - piedra \n2 - papel \n3 - tijera').toLowerCase();
-    } 
-
-//funcion para obtener el resultado de la partida
-function resultadoPartida(arma1, arma2) {
-    if (arma1 == arma2) {
-        return'Empate!';
-    } else if (arma1 == 'piedra') {
-        if (arma2 == 'papel') {
-            return'Perdiste! :(';
+//funcion para validar el numero ingresado , permitiendo solo de 1 al 3
+function validarNumero() {
+    while (cortarFuncion == true) {
+        opcionJugador = parseInt(prompt(opciones()));
+        if (opcionJugador < 4 && opcionJugador > 0) {
+            cortarFuncion == false;
+            return opcionJugador;
         } else {
-            return'Ganaste! :)';
-        }
-    } else if (arma1 == 'papel') {
-        if (arma2 == 'tijera') {
-            return'Perdiste! :(';
-        } else {
-            return'Ganaste! :)';
-        }
-    } else if (arma1 == 'tijera') {
-        if (arma2 == 'piedra') {
-            return'Perdiste! :(';
-        } else {
-            return'Ganaste! :)';
+            alert("El numero elegido es incorrecto.")
+            continue;
         }
     }
 }
 
-// resultado
-console.log(`Escogiste: ${armaUser} \nLa Computadora eligio: ${armaCpu}`);
+//Funcion para la batalla
+const batalla = () => {
+    if (opcionJugador == "piedra" && armaCpu == "tijera") {
+        alert("Has ganado :D !!");
+        console.log("El usuario " + usuario + " ha ganado");
+    } else if (opcionJugador == "papel" && armaCpu == "piedra") {
+        alert("Has ganado :D !!");
+        console.log("El usuario " + usuario + " ha ganado");
+    } else if (opcionJugador == "tijera" && armaCpu == "papel") {
+        alert("Has ganado :D !!");
+        console.log("El usuario" + usuario + " ha ganado");
+    } else if (opcionJugador == armaCpu) {
+        alert("Es un empate :O !!");
+        console.log("Ha ocurrido un empate");
+    } else {
+        alert("Has perdido :C !!");
+        console.log("El usuario " + usuario + " ha perdido");
+    }
+}
 
-console.log(resultadoPartida(armaUser, armaCpu));
+//funcion flecha para mostrar el menu de opciones
+const opciones = () => {
+    return ("Hola " + usuario + " !! ingresa tu eleccion: \nOpciones: \n1 = Piedra \n2 = Papel \n3 = Tijera")
+}
+
+let cortarFuncion = true;
+let opcionJugador;
+
+opcionJugador = validarNumero();
+
+// switch para transformar el numero a string con el valor deseado
+switch (opcionJugador) {
+    case 1:
+        opcionJugador = "piedra"
+        break;
+    case 2:
+        opcionJugador = "papel"
+        break;
+    case 3:
+        opcionJugador = "tijera"
+        break;
+}
+
+console.log("El usuario ha elegido " + opcionJugador);
+
+console.log("La computadora ha elegido " + armaCpu);
+
+batalla();
+
