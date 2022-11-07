@@ -144,8 +144,18 @@ const ejecutarJuego = () => {
     console.log("El jugador " + usuario + " ha elegido " + opcionJugador);
 
     console.log("La computadora ha elegido " + armaCpu);
-        
+
     scores();
+}
+
+const definirCampeon = () => {
+    if (puntos[0].puntaje === 5) {
+        alert("Felicidades " + usuario + " es el campeon del piedra papel o tijeras !!!")
+        console.log("Felicidades " + usuario + " es el campeon del piedra papel o tijeras !!!");
+    } else if (puntos[1].puntaje === 5) {
+        alert("Felicidades " + PC + " es el campeon del piedra papel o tijeras !!!")
+        console.log("Felicidades " + PC + " es el campeon del piedra papel o tijeras !!!");
+    }
 }
 
 let pararJuego = true;
@@ -155,10 +165,11 @@ const juegoDeCincoRondas = () => {
         ejecutarJuego();
         if (puntos[0].puntaje === 5 || puntos[1].puntaje === 5) {
             pararJuego == false;
-            return campeon;
+            return definirCampeon();
         }
     }
 }
 
 juegoDeCincoRondas();
+
 
