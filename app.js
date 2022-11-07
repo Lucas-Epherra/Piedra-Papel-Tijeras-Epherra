@@ -150,11 +150,11 @@ const ejecutarJuego = () => {
 
 const definirCampeon = () => {
     if (puntos[0].puntaje === 5) {
-        alert("Felicidades " + usuario + " es el campeon del piedra papel o tijeras !!!")
+        alert("Felicidades " + usuario + " es el campeon del piedra papel o tijeras !!!");
         console.log("Felicidades " + usuario + " es el campeon del piedra papel o tijeras !!!");
     } else if (puntos[1].puntaje === 5) {
-        alert("Felicidades " + PC + " es el campeon del piedra papel o tijeras !!!")
-        console.log("Felicidades " + PC + " es el campeon del piedra papel o tijeras !!!");
+        alert("Felicidades " + PC + " es el campeon del piedra papel o tijeras !!!");
+        console.log("Felicidades la " + PC + " es el campeon del piedra papel o tijeras !!!");
     }
 }
 
