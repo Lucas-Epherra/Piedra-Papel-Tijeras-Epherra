@@ -114,9 +114,12 @@ const scores = () => {
     if (ganador === usuario) {
         puntos[0].puntaje++;
         console.log("el jugador " + usuario + " tiene " + puntos[0].puntaje + " puntos")
+        console.log("el jugador pc tiene " + puntos[1].puntaje + " puntos")
     } else if (ganador === PC) {
         puntos[1].puntaje++;
+        console.log("el jugador " + usuario + " tiene " + puntos[0].puntaje + " puntos")
         console.log("el jugador pc tiene " + puntos[1].puntaje + " puntos")
+
     } else {
         console.log("empate no mueve puntos")
         console.log("el jugador " + usuario + " tiene " + puntos[0].puntaje + " puntos")
@@ -146,16 +149,16 @@ const ejecutarJuego = () => {
 }
 
 let pararJuego = true;
-let campeon;
 
 const juegoDeCincoRondas = () => {
     while (pararJuego == true) {
         ejecutarJuego();
-        if (puntos[0].puntaje < 5 || puntos[1].puntaje < 5) {
+        if (puntos[0].puntaje === 5 || puntos[1].puntaje === 5) {
             pararJuego == false;
             return campeon;
         }
     }
 }
 
-campeon = juegoDeCincoRondas();
+juegoDeCincoRondas();
+
