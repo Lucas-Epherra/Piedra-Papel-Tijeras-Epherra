@@ -67,30 +67,27 @@ function validarNumero() {
     }
 }
 
+let mostrarEleccion;
+
 let ganador;
 
 //Funcion para la batalla
 const batalla = () => {
     if (opcionJugador == "piedra" && armaCpu == "tijera") {
         ganador = usuario;
-        alert("Has ganado :D !!");
-        console.log("El jugador " + usuario + " ha ganado");
+        alert("Has ganado la ronda :D !! \n" + mostrarEleccion);
     } else if (opcionJugador == "papel" && armaCpu == "piedra") {
         ganador = usuario;
-        alert("Has ganado :D !!");
-        console.log("El jugador " + usuario + " ha ganado");
+        alert("Has ganado la ronda :D !!\n" + mostrarEleccion);
     } else if (opcionJugador == "tijera" && armaCpu == "papel") {
         ganador = usuario;
-        alert("Has ganado :D !!");
-        console.log("El jugador" + usuario + " ha ganado");
+        alert("Has ganado la ronda :D !!\n" + mostrarEleccion);
     } else if (opcionJugador == armaCpu) {
         ganador = "empate";
-        alert("Es un empate :O !!");
-        console.log("Ha ocurrido un empate");
+        alert("La ronda fue un empate :O !!\n" + mostrarEleccion);
     } else {
         ganador = PC;
-        alert("Has perdido :C !!");
-        console.log("El jugador " + usuario + " ha perdido");
+        alert("Has perdido la ronda :C !!\n" + mostrarEleccion);
     }
 }
 
@@ -109,21 +106,19 @@ const transformToString = () => {
     }
 }
 
+const mostrarAlertPuntos = () =>alert("El jugador " + usuario + " tiene " + puntos[0].puntaje + " puntos \nEl jugador pc tiene " + puntos[1].puntaje + " puntos");
+
 
 const scores = () => {
     if (ganador === usuario) {
         puntos[0].puntaje++;
-        console.log("el jugador " + usuario + " tiene " + puntos[0].puntaje + " puntos")
-        console.log("el jugador pc tiene " + puntos[1].puntaje + " puntos")
+        mostrarAlertPuntos();
     } else if (ganador === PC) {
         puntos[1].puntaje++;
-        console.log("el jugador " + usuario + " tiene " + puntos[0].puntaje + " puntos")
-        console.log("el jugador pc tiene " + puntos[1].puntaje + " puntos")
-
+        mostrarAlertPuntos();
     } else {
-        console.log("empate no mueve puntos")
-        console.log("el jugador " + usuario + " tiene " + puntos[0].puntaje + " puntos")
-        console.log("el jugador pc tiene " + puntos[1].puntaje + " puntos")
+        alert("empate no mueve puntos");
+        mostrarAlertPuntos();
     }
 }
 
@@ -139,11 +134,11 @@ const ejecutarJuego = () => {
 
     transformToString();
 
+    let alertEleccion = "El jugador " + usuario + " ha elegido " + opcionJugador + "\nLa computadora ha elegido " + armaCpu
+
+    mostrarEleccion = alertEleccion;
+
     batalla();
-
-    console.log("El jugador " + usuario + " ha elegido " + opcionJugador);
-
-    console.log("La computadora ha elegido " + armaCpu);
 
     scores();
 }
@@ -153,8 +148,8 @@ const definirCampeon = () => {
         alert("Felicidades " + usuario + " es el campeon del piedra papel o tijeras !!!");
         console.log("Felicidades " + usuario + " es el campeon del piedra papel o tijeras !!!");
     } else if (puntos[1].puntaje === 5) {
-        alert("Felicidades la " + PC + " es el campeon del piedra papel o tijeras !!!");
-        console.log("Felicidades la " + PC + " es el campeon del piedra papel o tijeras !!!");
+        alert("La " + PC + " es el campeon del piedra papel o tijeras !!!");
+        console.log("La " + PC + " es el campeon del piedra papel o tijeras !!!");
     }
 }
 
