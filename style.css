@@ -11,27 +11,30 @@
   }
 
 header {
-    background-color: rgb(62, 145, 240);
+    background-color: rgb(0, 0, 0);
     display: flex;
     justify-content: center;
     padding: 20px;
 }
 
-header > h1 {
+.header-title {
     color: #ffffff;
     text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-body {
-    background-color: #24272E;
+.bg-personalizado {
+    background: radial-gradient(circle, hsla(225, 100%, 50%, 1) 0%, rgb(5, 31, 116) 100%);
+    padding: 4rem;
 }
 
 .puntuaciones {
-    border: 4px solid white;
+    border: 3px solid white;
+    background-color: black;
     width: 200px;
-    margin: 20px auto;
+    margin: 0 auto;
     text-align: center;
-    color: white;
+    color: rgb(255, 0, 0);
     font-size: 30px;
     padding: 20px;
     border-radius: 5px;
@@ -40,23 +43,27 @@ body {
 
 
 .puntajes {
-    background-color: rgb(223, 87, 87);
+    background-color: rgb(0, 0, 0);
     font-size: 14px;
-    padding:2px 10px;
+    padding:4px 10px;
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255);
 }
 
 #user-text {
     position: absolute;
-    top: 30px;
+    top: 25px;
     left:-35px;
 }
 #comp-text {
     position: absolute;
-    top: 30px;
+    top: 25px;
     right:-25px;
 }
 
 .resultados {
+    margin-top: 3rem;
+    margin-bottom:2rem  ;
     font-size: 40px;
     color: white;
 }
